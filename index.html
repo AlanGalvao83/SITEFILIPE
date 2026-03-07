@@ -215,7 +215,7 @@
             <a class="contato-link" href="https://www.instagram.com/protege.pcidf/" target="_blank" rel="noreferrer"><img class="contato-icone" src="./imagens/instagram icon.svg" alt="" aria-hidden="true"><span>Instagram: @protege.pcidf</span></a>
           </div>
         </div>
-        <form class="formulario">
+        <form class="formulario" id="formOrcamento">
           <label for="nome">Nome</label>
           <input id="nome" name="nome" type="text" placeholder="Seu nome">
 
@@ -235,7 +235,8 @@
           <label for="mensagem">Mensagem</label>
           <textarea id="mensagem" name="mensagem" rows="4" placeholder="Descreva rapidamente sua demanda"></textarea>
 
-          <button type="button">Enviar solicitação</button>
+          <button type="submit">Enviar por E-mail e WhatsApp</button>
+          <p class="formulario-status" id="formStatus" aria-live="polite"></p>
         </form>
       </div>
     </section>

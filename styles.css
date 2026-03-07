@@ -462,6 +462,17 @@ h1 {
   background: var(--cor-principal-hover);
 }
 
+.formulario-status {
+  min-height: 22px;
+  margin-top: 6px;
+  font-size: 0.92rem;
+  color: #a8c7f4;
+}
+
+.formulario-status.erro {
+  color: #ff9494;
+}
+
 .rodape {
   border-top: 1px solid rgba(197, 212, 238, 0.15);
 }

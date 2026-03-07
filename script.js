@@ -79,3 +79,47 @@ carroceis.forEach((carrocel) => {
   atualizarCarrocel();
   iniciarAutoplay();
 });
+
+const formOrcamento = document.getElementById("formOrcamento");
+const formStatus = document.getElementById("formStatus");
+
+if (formOrcamento) {
+  formOrcamento.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const nome = document.getElementById("nome")?.value.trim() ?? "";
+    const telefone = document.getElementById("telefone")?.value.trim() ?? "";
+    const servico = document.getElementById("servico")?.value.trim() ?? "";
+    const mensagem = document.getElementById("mensagem")?.value.trim() ?? "";
+
+    if (!nome || !telefone || !mensagem) {
+      if (formStatus) {
+        formStatus.textContent = "Preencha nome, telefone e mensagem para enviar.";
+        formStatus.classList.add("erro");
+      }
+      return;
+    }
+
+    const assunto = "Solicitação de orçamento - PROTEGE engenharia de incêndio";
+    const texto = [
+      "Olá, equipe PROTEGE engenharia de incêndio.",
+      "",
+      "Gostaria de solicitar um orçamento com os dados abaixo:",
+      `Nome: ${nome}`,
+      `Telefone: ${telefone}`,
+      `Serviço de interesse: ${servico}`,
+      `Mensagem: ${mensagem}`
+    ].join("\n");
+
+    const emailUrl = `mailto:protege.incendiodf@gmail.com?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(texto)}`;
+    const whatsappUrl = `https://wa.me/556183521104?text=${encodeURIComponent(texto)}`;
+
+    if (formStatus) {
+      formStatus.textContent = "Abrindo envio por WhatsApp e e-mail...";
+      formStatus.classList.remove("erro");
+    }
+
+    window.open(whatsappUrl, "_blank", "noopener");
+    window.location.href = emailUrl;
+  });
+}
